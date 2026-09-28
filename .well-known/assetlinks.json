@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.vercel.socialpilotpro",
+      "sha256_cert_fingerprints": [
+        "14:6D:E9:7D:0F:52:AB:3F:4A:8D:6C:9B:2E:1F:5D:8A:3C:7B:9E:0F:4A:8B:6C:9D:2E:1F:5D:8A:3C:7B:9E:0F"
+      ]
+    }
+  }
+]

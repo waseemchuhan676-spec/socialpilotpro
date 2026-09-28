@@ -1,0 +1,15 @@
+# robots.txt for SocialPilotPro
+# https://socialpilotpro-pi.vercel.app/
+
+User-agent: *
+Allow: /
+Allow: /manifest.webmanifest
+Allow: /manifest.json
+Allow: /sw.js
+Allow: /icon-*.png
+
+# Disallow internal backend API routes from crawling
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://socialpilotpro-pi.vercel.app/sitemap.xml
