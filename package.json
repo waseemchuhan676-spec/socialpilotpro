@@ -1,0 +1,10 @@
+{
+  "name": "socialpilotpro",
+  "version": "1.0.0",
+  "description": "Pakistan Government Schemes Research & Facebook Desk PWA",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "serve ."
+  }
+}

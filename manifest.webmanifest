@@ -1,0 +1,58 @@
+{
+  "name": "SocialPilotPro",
+  "short_name": "SocialPilot",
+  "description": "Pakistan Government Schemes Research & Facebook Desk — BISP, 8171, Punjab & Federal Updates",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#10251e",
+  "theme_color": "#10251e",
+  "categories": ["news", "government", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Daily Research",
+      "short_name": "Research",
+      "url": "./index.html#research",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "AI Posts Queue",
+      "short_name": "Posts",
+      "url": "./index.html#posts",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Facebook Desk",
+      "short_name": "Facebook",
+      "url": "./index.html#facebook",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
