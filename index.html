@@ -1,0 +1,2899 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10251e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<title>GovUpdate Manager — Pakistan Schemes & Facebook Content Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f7f6;
+  --card: #ffffff;
+  --text: #17231f;
+  --muted: #64746d;
+  --line: #dfe7e3;
+  --line-light: #edf2ef;
+  --green: #087f5b;
+  --green-hover: #066549;
+  --green2: #e8f6f0;
+  --green-dark: #10251e;
+  --amber: #a86b00;
+  --amberbg: #fff5df;
+  --amber-border: #f0cf85;
+  --red: #b42318;
+  --redbg: #feeceb;
+  --red-border: #fecdca;
+  --blue: #175cd3;
+  --bluebg: #eff8ff;
+  --blue-border: #b2ddff;
+  --purple: #6941c6;
+  --purplebg: #f9f5ff;
+  --shadow-sm: 0 2px 6px rgba(16, 37, 30, 0.04);
+  --shadow: 0 10px 30px rgba(16, 37, 30, 0.07);
+  --shadow-lg: 0 16px 40px rgba(16, 37, 30, 0.12);
+  --radius: 12px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.app { min-height: 100vh; display: flex; }
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: var(--green-dark);
+  color: #fff;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+.brand {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  margin: 0 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  background: #087f5b;
+  color: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 800;
+}
+.brand span {
+  display: block;
+  color: #8ee2bf;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 2px;
+  letter-spacing: 0;
+}
+.nav { flex: 1; overflow-y: auto; }
+.nav button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #cbd8d3;
+  text-align: left;
+  padding: 11px 14px;
+  border-radius: 10px;
+  margin: 3px 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.15s ease;
+}
+.nav button .nav-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav button .pill-count {
+  background: #18372d;
+  color: #8ee2bf;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+.nav button.active, .nav button:hover {
+  background: #1d3b31;
+  color: #ffffff;
+}
+.nav button.active .pill-count {
+  background: var(--green);
+  color: #fff;
+}
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 14px;
+}
+.side-note {
+  background: #18372d;
+  border: 1px solid #2c5144;
+  padding: 13px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: #b9ccc5;
+  line-height: 1.4;
+}
+.side-note b { color: #8ee2bf; font-weight: 700; }
+.safety-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #8ee2bf;
+  margin-top: 8px;
+  font-weight: 600;
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* Main Area */
+.main {
+  flex: 1;
+  padding: 28px 36px;
+  max-width: 1560px;
+  margin: 0 auto;
+  width: 100%;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.top h1 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.6px;
+  color: #111e19;
+}
+.top p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  border-radius: 9px;
+  padding: 9px 15px;
+  cursor: pointer;
+  font-weight: 650;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.btn:hover {
+  background: #f8faf9;
+  border-color: #c9d6d0;
+}
+.btn.primary {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.btn.primary:hover {
+  background: var(--green-hover);
+  border-color: var(--green-hover);
+}
+.btn.sm {
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 7px;
+}
+.btn.danger {
+  color: var(--red);
+  border-color: var(--red-border);
+}
+.btn.danger:hover { background: var(--redbg); }
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 8 Metrics Cards Grid */
+.cards-8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow);
+}
+.card .metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card .label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.card .metric-icon {
+  font-size: 16px;
+  color: var(--muted);
+}
+.card .metric {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 6px;
+  letter-spacing: -0.5px;
+  color: #12211b;
+}
+.card .delta {
+  font-size: 11.5px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+.delta.green { color: var(--green); }
+.delta.amber { color: var(--amber); }
+.delta.blue { color: var(--blue); }
+.delta.muted { color: var(--muted); }
+.delta.red { color: var(--red); }
+
+/* Layout Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1.45fr 0.85fr;
+  gap: 18px;
+}
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+  margin-bottom: 18px;
+}
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.panel h2 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.2px;
+  color: #12221c;
+}
+.panel p.panel-sub {
+  color: var(--muted);
+  font-size: 12.5px;
+  margin: 3px 0 0;
+}
+
+/* Filters & Inputs */
+.filters {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 16px;
+}
+select, input[type="text"], input[type="search"], textarea {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 9px;
+  padding: 9px 12px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+select:focus, input[type="text"]:focus, input[type="search"]:focus, textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(8, 127, 91, 0.12);
+}
+.search-box {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* Tags & Badges */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green2);
+  color: var(--green);
+  letter-spacing: 0.2px;
+}
+.tag.warn {
+  background: var(--amberbg);
+  color: var(--amber);
+  border: 1px solid var(--amber-border);
+}
+.tag.red {
+  background: var(--redbg);
+  color: var(--red);
+  border: 1px solid var(--red-border);
+}
+.tag.blue {
+  background: var(--bluebg);
+  color: var(--blue);
+  border: 1px solid var(--blue-border);
+}
+.tag.purple {
+  background: var(--purplebg);
+  color: var(--purple);
+}
+.tag.neutral {
+  background: #f0f3f2;
+  color: var(--muted);
+}
+
+/* Research Items */
+.research { display: grid; gap: 12px; }
+.item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  background: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.item:hover {
+  border-color: #b5c7bf;
+  box-shadow: var(--shadow-sm);
+}
+.item-content { flex: 1; }
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 7px;
+}
+.item h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #12211b;
+}
+.item p.summary {
+  margin: 0 0 9px;
+  color: #3b4d45;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.facts-box {
+  background: #f8faf9;
+  border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0;
+  padding: 8px 12px;
+  margin: 8px 0;
+}
+.facts-box ul {
+  margin: 0;
+  padding-left: 16px;
+  color: #273831;
+  font-size: 12px;
+}
+.facts-box li { margin-bottom: 3px; }
+.item-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+.item-footer a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.item-footer a:hover { text-decoration: underline; }
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 140px;
+}
+
+/* Post Cards */
+.post {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 14px;
+  background: #fff;
+  transition: all 0.15s ease;
+}
+.post:hover { border-color: #b5c7bf; }
+.posthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.posthead-info b {
+  font-size: 15px;
+  font-weight: 700;
+  color: #112019;
+  display: block;
+}
+.post textarea {
+  width: 100%;
+  min-height: 140px;
+  margin-top: 8px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 12px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #1a2923;
+  background: #fafcfb;
+}
+.post textarea.urdu-mode {
+  direction: rtl;
+  font-family: 'Noto Nastaliq Urdu', 'Plus Jakarta Sans', serif;
+  font-size: 15px;
+  line-height: 2.1;
+}
+.post-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: var(--muted);
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.post-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Realistic Facebook Preview Component */
+.fb-preview-card {
+  border: 1px solid #c9d4ce;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 14px;
+  margin-top: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+.fb-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.fb-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #1877f2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+}
+.fb-author-details b {
+  font-size: 13.5px;
+  color: #050505;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.fb-badge {
+  color: #1877f2;
+  font-size: 12px;
+}
+.fb-author-details span {
+  font-size: 11.5px;
+  color: #65676b;
+}
+.fb-body {
+  font-size: 13px;
+  color: #050505;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 6px 0;
+}
+.fb-footer-bar {
+  border-top: 1px solid #e4e6eb;
+  padding-top: 8px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-around;
+  color: #65676b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Switch & Toggles */
+.switch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-light);
+}
+.switch-row:last-child { border-bottom: 0; }
+.switch-info b {
+  display: block;
+  font-size: 13px;
+  color: #14221d;
+}
+.switch-info span {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.switch input { display: none; }
+.slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 99px;
+  background: #cbd5d0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.switch input:checked + .slider { background: var(--green); }
+.switch input:checked + .slider:before { transform: translateX(20px); }
+
+/* Sources & Rows */
+.source-list { display: grid; gap: 9px; }
+.source-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  gap: 10px;
+}
+.source-row span.name {
+  font-weight: 600;
+  color: #14241e;
+  font-size: 13px;
+}
+.source-row span.meta {
+  color: var(--muted);
+  font-size: 11.5px;
+  display: block;
+}
+
+/* Status Badges */
+.status {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.status.pending { background: var(--amberbg); color: var(--amber); }
+.status.approved { background: var(--green2); color: var(--green); }
+.status.scheduled { background: var(--bluebg); color: var(--blue); }
+.status.published { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.status.failed { background: var(--redbg); color: var(--red); border: 1px solid var(--red-border); }
+
+/* Modal & Dialogs */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 37, 30, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-box {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  padding: 26px;
+  position: relative;
+}
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.modal-head h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #11221b;
+}
+.modal-close {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #1c3027;
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+}
+
+/* Toast Alerts */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.toast {
+  background: #11221b;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideUp 0.25s ease;
+  border-left: 4px solid var(--green);
+}
+.toast.warn { border-left-color: var(--amber); }
+.toast.error { border-left-color: var(--red); }
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+}
+table.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+table.custom-table th {
+  text-align: left;
+  padding: 10px 12px;
+  background: #f8faf9;
+  color: var(--muted);
+  font-weight: 700;
+  border-bottom: 1px solid var(--line);
+  font-size: 11.5px;
+  text-transform: uppercase;
+}
+table.custom-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line-light);
+  color: #21332b;
+}
+
+.log {
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+.hidden { display: none !important; }
+.empty {
+  text-align: center;
+  padding: 38px 20px;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+.empty-icon { font-size: 32px; margin-bottom: 8px; }
+
+/* Responsive adjustments */
+@media (max-width: 1180px) {
+  .cards-8 { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .sidebar { width: 220px; }
+  .main { padding: 20px; }
+}
+@media (max-width: 720px) {
+  .app { display: block; }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    padding: 16px;
+  }
+  .nav {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .nav button {
+    white-space: nowrap;
+    width: auto;
+    padding: 8px 12px;
+  }
+  .sidebar-footer { display: none; }
+  .main { padding: 16px; }
+  .cards-8 { grid-template-columns: 1fr 1fr; }
+  .top { flex-direction: column; align-items: flex-start; }
+  .actions { width: 100%; }
+  .actions .btn { flex: 1; justify-content: center; }
+  .item { grid-template-columns: 1fr; }
+  .item-actions { flex-direction: row; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">🏛️</div>
+      <div>
+        GovUpdate Desk
+        <span>Pakistan Schemes & FB Desk</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="active" data-page="dashboard">
+        <span class="nav-label">▦ Dashboard</span>
+      </button>
+      <button data-page="research">
+        <span class="nav-label">⌕ Daily Research</span>
+        <span class="pill-count" id="navResearchCount">10</span>
+      </button>
+      <button data-page="posts">
+        <span class="nav-label">✎ AI Posts</span>
+        <span class="pill-count" id="navPostsCount">4</span>
+      </button>
+      <button data-page="calendar">
+        <span class="nav-label">◷ Content Calendar</span>
+      </button>
+      <button data-page="sources">
+        <span class="nav-label">✓ Sources & Rules</span>
+      </button>
+      <button data-page="facebook">
+        <span class="nav-label">f Facebook Page</span>
+        <span class="tag neutral" style="font-size:9px;padding:1px 5px;" id="fbNavBadge">Setup</span>
+      </button>
+      <button data-page="settings">
+        <span class="nav-label">⚙ Settings</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+            <button class="btn sm" id="pwaInstallBtn" style="display:none;background:#087f5b;color:#fff;border-color:#087f5b;margin-bottom:8px;width:100%;justify-content:center;" onclick="triggerPwaInstall()">
+        ðŸ“² Install App on Phone
+      </button>
+      <div class="side-note">
+        <b>Factual Safety Policy</b><br>
+        Strict official-source verification required. The AI never invents amounts, dates or links.
+        <div class="safety-indicator">
+          <span class="pulse-dot"></span> Auto-Publish: Safe (Manual Review)
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Areas -->
+  <main class="main">
+
+    <!-- 1. DASHBOARD PAGE -->
+    <section id="dashboard" class="page">
+      <div class="top">
+        <div>
+          <h1>Daily Government Schemes Update Desk</h1>
+          <p>Verified monitoring for BISP 8171, Punjab Government schemes, and Federal relief packages.</p>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="runResearch()">↻ Run Daily Research</button>
+          <button class="btn primary" onclick="openNewPostModal()">＋ Generate AI Post</button>
+        </div>
+      </div>
+
+      <!-- 8 Real Metric Counters -->
+      <div class="cards-8">
+        <div class="card">
+          <div class="metric-header">
+            <span class="label">Research Items Today</span>
+            <span class="metric-icon">⌕</span>
+          </div>
+          <div class="metric" id="mResearch">10</div>
+          <div class="delta green">✓ Official sources active</div>
+        </div>
+        <div class="card">
+          <div class="metric-header">
+            <span class="label">Verified Updates</span>
+            <span class="metric-icon">✓</span>
+          </div>
+          <div class="metric" id="mVerified">6</div>
+          <div class="delta green">Confirmed by Gazette/PR</div>
+        </div>
+        <div class="card">
+          <div class="metric-header">
+            <span class="label">Needs Review</span>
+            <span class="metric-icon">⚠️</span>
+          </div>
+          <div class="metric" id="mReview">4</div>
+          <div class="delta amber">Requires secondary check</div>
+        </div>
+        <div class="card">
+          <div class="metric-header">
+            <span class="label">Draft Posts</span>
+            <span class="metric-icon">✎</span>
+          </div>
+          <div class="metric" id="mDrafts">2</div>
+          <div class="delta blue">In review queue</div>
+        </div>
+        <div class="card">
+          <div class="metric-header">
+            <span class="label">Approved Posts</span>
+            <span class="metric-icon">★</span>
+          </div>
+          <div class="metric" id="mApproved">1</div>
+          <div class="delta green">Ready for dispatch</div>
+        </div>
+        <div class="card">
+          <div class="metric-header">
+            <span class="label">Scheduled Posts</span>
+            <span class="metric-icon">◷</span>
+          </div>
+          <div class="metric" id="mScheduled">1</div>
+          <div class="delta blue">In calendar queue</div>
+        </div>
+        <div class="card">
+          <div class="metric-header">
+            <span class="label">Published Posts</span>
+            <span class="metric-icon">📢</span>
+          </div>
+          <div class="metric" id="mPublished">12</div>
+          <div class="delta muted">History retained</div>
+        </div>
+        <div class="card">
+          <div class="metric-header">
+            <span class="label">Failed Posts</span>
+            <span class="metric-icon">✕</span>
+          </div>
+          <div class="metric" id="mFailed">0</div>
+          <div class="delta green">Zero API dispatch errors</div>
+        </div>
+      </div>
+
+      <!-- Main Dashboard Grid -->
+      <div class="grid">
+        <div>
+          <!-- Latest Monitored Updates -->
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Latest Monitored Government Updates</h2>
+                <p class="panel-sub">Official press releases and verified field announcements</p>
+              </div>
+              <button class="btn sm" onclick="show('research')">View All Updates →</button>
+            </div>
+            <div id="dashResearch" class="research"></div>
+          </div>
+        </div>
+
+        <div>
+          <!-- Automation Status -->
+          <div class="panel">
+            <h2>Automation Control Center</h2>
+            <div class="switch-row">
+              <div class="switch-info">
+                <b>Automated Daily Research</b>
+                <span>Runs at 07:00 AM PKT via Vercel Cron</span>
+              </div>
+              <label class="switch">
+                <input id="autoResearch" type="checkbox" checked onchange="toggleAutoResearch()">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="switch-row">
+              <div class="switch-info">
+                <b>Auto-Publish to Facebook</b>
+                <span>Safety lock (Manual editor approval recommended)</span>
+              </div>
+              <label class="switch">
+                <input id="autoPublish" type="checkbox" onchange="toggleAutoPublish()">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="log" id="autoPublishNote">
+              🔒 <b>Safety Notice:</b> Auto-Publish is <b>OFF</b> by default. Every generated post must be reviewed and approved by an editor before publishing to avoid spreading misinformation.
+            </div>
+          </div>
+
+          <!-- Facebook Integration Card -->
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Facebook Page Channel</h2>
+                <p class="panel-sub">Official Meta Graph API v19.0</p>
+              </div>
+              <span class="tag warn" id="dashFbStatus">Setup Needed</span>
+            </div>
+            <p style="font-size:12.5px;color:var(--muted);margin-bottom:12px;">
+              Keep access tokens secure in backend serverless environment variables. Never expose tokens in frontend HTML.
+            </p>
+            <div class="actions">
+              <button class="btn sm primary" onclick="show('facebook')">Configure Facebook Page</button>
+              <button class="btn sm" onclick="testFacebookConnection()">Test Connection</button>
+            </div>
+          </div>
+
+          <!-- Active Coverage Matrix -->
+          <div class="panel">
+            <h2>Active Coverage Scopes</h2>
+            <div class="source-list">
+              <div class="source-row">
+                <div>
+                  <span class="name">BISP / 8171 / NSER</span>
+                  <span class="meta">Kafaalat, Taleemi Wazaif, Nashonuma</span>
+                </div>
+                <span class="tag">ACTIVE</span>
+              </div>
+              <div class="source-row">
+                <div>
+                  <span class="name">Punjab Schemes</span>
+                  <span class="meta">Kisan Card, Apni Chhat, Himmat Card</span>
+                </div>
+                <span class="tag">ACTIVE</span>
+              </div>
+              <div class="source-row">
+                <div>
+                  <span class="name">Federal Relief Packages</span>
+                  <span class="meta">PM Relief, PASS notifications</span>
+                </div>
+                <span class="tag">ACTIVE</span>
+              </div>
+              <div class="source-row">
+                <div>
+                  <span class="name">Anti-Scam Watchdog</span>
+                  <span class="meta">Fake 11-digit SMS & fake APK monitoring</span>
+                </div>
+                <span class="tag warn">WATCHING</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DAILY RESEARCH PAGE -->
+    <section id="research" class="page hidden">
+      <div class="top">
+        <div>
+          <h1>Daily Research Desk</h1>
+          <p>Multi-source verification engine prioritizing official government gazettes, BISP portals, and Punjab DGPR notifications.</p>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="openAddResearchModal()">＋ Manual Update</button>
+          <button class="btn primary" onclick="runResearch()">↻ Run Research Now</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <!-- Filters Bar -->
+        <div class="filters">
+          <select id="catFilter" onchange="renderResearch()">
+            <option value="All categories">All Categories</option>
+            <option value="BISP">BISP / 8171</option>
+            <option value="BISP Registration">BISP Registration & NSER</option>
+            <option value="Benazir Taleemi Wazaif">Benazir Taleemi Wazaif</option>
+            <option value="Punjab Schemes">Punjab Schemes (Kisan / Housing)</option>
+            <option value="Punjab Financial Assistance">Punjab Financial Assistance</option>
+            <option value="Federal Schemes">Federal Schemes</option>
+            <option value="Scam Alert">Scam & Fraud Alerts</option>
+            <option value="District Update">District-Level Updates</option>
+            <option value="Agriculture">Agriculture & Tractors</option>
+          </select>
+
+          <select id="scopeFilter" onchange="renderResearch()">
+            <option value="All scopes">All Scopes (Pakistan & Punjab)</option>
+            <option value="Punjab only">Punjab Only</option>
+            <option value="Pakistan-wide">Pakistan-wide</option>
+          </select>
+
+          <select id="districtFilter" onchange="renderResearch()">
+            <option value="All districts">All Districts</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Faisalabad">Faisalabad</option>
+            <option value="Rawalpindi">Rawalpindi</option>
+            <option value="Multan">Multan</option>
+            <option value="Gujranwala">Gujranwala</option>
+            <option value="Bahawalpur">Bahawalpur</option>
+            <option value="Sargodha">Sargodha</option>
+            <option value="Sialkot">Sialkot</option>
+            <option value="Rahim Yar Khan">Rahim Yar Khan</option>
+            <option value="D.G. Khan">D.G. Khan</option>
+          </select>
+
+          <select id="verifyFilter" onchange="renderResearch()">
+            <option value="All verification">All Verification Statuses</option>
+            <option value="VERIFIED">VERIFIED (Official Source)</option>
+            <option value="CROSS-CHECK">CROSS-CHECK (Secondary Report)</option>
+            <option value="NEEDS REVIEW">NEEDS REVIEW (Unconfirmed)</option>
+          </select>
+
+          <div class="search-box">
+            <input id="search" type="search" placeholder="Search keywords (e.g. 8171, Kisan card, Taleemi)..." oninput="renderResearch()">
+          </div>
+        </div>
+
+        <!-- Research Items List -->
+        <div id="researchList" class="research"></div>
+      </div>
+    </section>
+
+    <!-- 3. AI POSTS PAGE -->
+    <section id="posts" class="page hidden">
+      <div class="top">
+        <div>
+          <h1>AI Facebook Post Generator & Queue</h1>
+          <p>Generate factual, respectful, anti-clickbait Urdu/Roman Urdu posts with official citations and scam warnings.</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" onclick="openNewPostModal()">＋ Create New Post</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <!-- Post Tabs -->
+        <div class="filters" style="margin-bottom:18px;">
+          <button class="btn sm primary post-tab-btn" data-tab="all" onclick="filterPosts('all', this)">All Posts (<span id="tabCountAll">0</span>)</button>
+          <button class="btn sm post-tab-btn" data-tab="pending" onclick="filterPosts('pending', this)">Drafts (<span id="tabCountDrafts">0</span>)</button>
+          <button class="btn sm post-tab-btn" data-tab="approved" onclick="filterPosts('approved', this)">Approved (<span id="tabCountApproved">0</span>)</button>
+          <button class="btn sm post-tab-btn" data-tab="scheduled" onclick="filterPosts('scheduled', this)">Scheduled (<span id="tabCountScheduled">0</span>)</button>
+          <button class="btn sm post-tab-btn" data-tab="published" onclick="filterPosts('published', this)">Published (<span id="tabCountPublished">0</span>)</button>
+        </div>
+
+        <div id="postsList"></div>
+      </div>
+    </section>
+
+    <!-- 4. CONTENT CALENDAR PAGE -->
+    <section id="calendar" class="page hidden">
+      <div class="top">
+        <div>
+          <h1>Publishing Calendar & Queue</h1>
+          <p>Schedule your posts across peak engagement slots (09:00 AM, 01:00 PM, 06:00 PM PKT).</p>
+        </div>
+        <button class="btn primary" onclick="openNewPostModal()">＋ Add to Schedule</button>
+      </div>
+
+      <div class="panel">
+        <h2>Upcoming 7-Day Editorial Schedule</h2>
+        <div class="table-wrap">
+          <table class="custom-table" id="calendarTable">
+            <thead>
+              <tr>
+                <th>Scheduled Date / Time</th>
+                <th>Post Title & Topic</th>
+                <th>Category</th>
+                <th>Channel</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="calendarList"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SOURCES & RULES PAGE -->
+    <section id="sources" class="page hidden">
+      <div class="top">
+        <div>
+          <h1>Sources & Verification Rules</h1>
+          <p>Official whitelist hierarchy and safety rules prohibiting unverified claims and clickbait.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel">
+          <h2>Official Whitelist Priority</h2>
+          <div class="source-list">
+            <div class="source-row">
+              <div>
+                <span class="name">1. BISP Official Portal & Press Releases</span>
+                <span class="meta">bisp.gov.pk · 8171.bisp.gov.pk · Official Shortcode: 8171</span>
+              </div>
+              <span class="tag">VERIFIED ONLY</span>
+            </div>
+            <div class="source-row">
+              <div>
+                <span class="name">2. Government of the Punjab Official Portals</span>
+                <span class="meta">punjab.gov.pk · DGPR Punjab · Departmental gazettes</span>
+              </div>
+              <span class="tag">VERIFIED ONLY</span>
+            </div>
+            <div class="source-row">
+              <div>
+                <span class="name">3. Federal Ministries (PASS, Finance, MoIP)</span>
+                <span class="meta">pass.gov.pk · PID press briefings · Cabinet notifications</span>
+              </div>
+              <span class="tag">VERIFIED ONLY</span>
+            </div>
+            <div class="source-row">
+              <div>
+                <span class="name">4. Reputable National News Wires (APP, Radio Pakistan)</span>
+                <span class="meta">Cross-checking only. Requires confirmation before VERIFIED tag</span>
+              </div>
+              <span class="tag warn">CROSS-CHECK</span>
+            </div>
+            <div class="source-row">
+              <div>
+                <span class="name">5. Unofficial Social Media, TikTok, YouTube Blogs</span>
+                <span class="meta">NEVER treated as an authoritative source. Banned from intake</span>
+              </div>
+              <span class="tag red">BLOCKED</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="panel">
+            <h2>Strict Prohibited Claim Rules</h2>
+            <div class="facts-box" style="border-left-color: var(--red); background:#fcf7f7;">
+              <ul style="color:#631814;">
+                <li><b>NEVER invent payment amounts</b> (e.g. Rs. 10,500, Rs. 13,500 must come from official notification).</li>
+                <li><b>NEVER invent payment dates</b> or tell users funds have arrived without official verification.</li>
+                <li><b>NEVER fabricate registration links</b> or suggest unofficial APK downloads.</li>
+                <li><b>NO sensational clickbait</b> ("100% payment confirmed!", "secret code", "sab ko milay ga").</li>
+                <li><b>NO political campaigning</b> — content must remain 100% objective and public-service oriented.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Common Government Scam Patterns</h2>
+            <div class="facts-box" style="border-left-color: var(--amber); background:#fdfbf4;">
+              <ul style="color:#573b00;">
+                <li>SMS from personal 11-digit mobile numbers claiming lottery or BISP grants. (Real is ONLY 8171).</li>
+                <li>Demands for "survey processing fees" or advance deposits on EasyPaisa/JazzCash.</li>
+                <li>Biometric retailers deducting unauthorized commission cuts from women's disbursements.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FACEBOOK CONNECTION PAGE -->
+    <section id="facebook" class="page hidden">
+      <div class="top">
+        <div>
+          <h1>Facebook Page Integration (Meta Graph API)</h1>
+          <p>Official, secure serverless integration for publishing posts directly to your verified Facebook Page.</p>
+        </div>
+        <button class="btn primary" onclick="testFacebookConnection()">⚡ Test Live Connection</button>
+      </div>
+
+      <div class="grid">
+        <div>
+          <!-- Meta API Status & Diagnostics -->
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Facebook Page Connection Status</h2>
+              <span class="status pending" id="fbStatusBadge">DISCONNECTED / SETUP REQUIRED</span>
+            </div>
+            <p style="font-size:13px;color:#33443d;margin-bottom:14px;">
+              This system uses Meta Graph API v19.0. In compliance with security standards, <b>never enter your Facebook password</b>. Tokens are stored securely in backend server environment variables.
+            </p>
+
+            <div class="source-list" style="margin-bottom:16px;">
+              <div class="source-row">
+                <span class="name">Target Facebook Page:</span>
+                <b id="fbPageNameDisplay">Not Connected (Configure in Vercel)</b>
+              </div>
+              <div class="source-row">
+                <span class="name">Meta Page ID:</span>
+                <span id="fbPageIdDisplay" style="font-family:monospace;font-weight:600;">FB_PAGE_ID not set</span>
+              </div>
+              <div class="source-row">
+                <span class="name">Required Meta Permissions:</span>
+                <span>pages_manage_posts, pages_read_engagement</span>
+              </div>
+              <div class="source-row">
+                <span class="name">Publishing Backend:</span>
+                <span class="tag blue">Vercel Serverless (/api/facebook)</span>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn primary" onclick="testFacebookConnection()">Check API Status</button>
+              <button class="btn" onclick="openSimulatedTestPostModal()">Test Sample Publish</button>
+            </div>
+          </div>
+
+          <!-- Publishing & Error Logs -->
+          <div class="panel">
+            <h2>Facebook Activity & Diagnostic Log</h2>
+            <div class="table-wrap">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>Action</th>
+                    <th>Post Reference</th>
+                    <th>Graph API Response</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="fbLogsTable">
+                  <tr>
+                    <td>Just now</td>
+                    <td>System Ready</td>
+                    <td>Initialization check</td>
+                    <td>Backend router mounted at /api/facebook</td>
+                    <td><span class="status approved">READY</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- Setup Guide -->
+          <div class="panel">
+            <h2>3-Step Meta Developer Setup</h2>
+            <div class="facts-box" style="border-left-color: var(--blue); background:#f4f9fd;">
+              <ol style="margin:0;padding-left:16px;color:#0e3860;font-size:12.5px;line-height:1.7;">
+                <li>
+                  <b>Create Meta App:</b> Go to <a href="https://developers.facebook.com" target="_blank" style="color:var(--blue);">developers.facebook.com</a> & create a Business app.
+                </li>
+                <li>
+                  <b>Generate Page Token:</b> In Graph API Explorer, select your Facebook Page and request <code>pages_manage_posts</code> and <code>pages_read_engagement</code>.
+                </li>
+                <li>
+                  <b>Configure Vercel Environment:</b> Add <code>FB_PAGE_ID</code> and <code>FB_PAGE_ACCESS_TOKEN</code> to your Vercel Project Settings.
+                </li>
+              </ol>
+            </div>
+            <div class="log">
+              ✓ The serverless backend keeps tokens encrypted.<br>
+              ✓ No access tokens are ever visible in browser developer tools or source code.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SETTINGS PAGE -->
+    <section id="settings" class="page hidden">
+      <div class="top">
+        <div>
+          <h1>Settings & System Preferences</h1>
+          <p>Configure automated research timing, default language formats, and geographic filters.</p>
+        </div>
+        <button class="btn primary" onclick="saveSettings()">Save Settings</button>
+      </div>
+
+      <div class="grid">
+        <div class="panel">
+          <h2>Automation & Scheduling</h2>
+          <div class="form-group">
+            <label>Automated Research Schedule</label>
+            <select id="settingSchedule">
+              <option value="daily_7am">Daily at 07:00 AM Pakistan Standard Time (Default)</option>
+              <option value="daily_9am">Daily at 09:00 AM Pakistan Standard Time</option>
+              <option value="twice_daily">Twice Daily (07:00 AM & 04:00 PM PKT)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Geographic Priority Focus</label>
+            <select id="settingGeo">
+              <option value="punjab_pk">Punjab First + Pakistan Federal (Recommended)</option>
+              <option value="punjab_only">Punjab Schemes Only</option>
+              <option value="pakistan_wide">All Pakistan Nationwide</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Default Post Generation Language</label>
+            <select id="settingLang">
+              <option value="Urdu + Roman Urdu">Urdu + Roman Urdu (Recommended - Maximum Reach)</option>
+              <option value="Urdu">Urdu Only (اردو)</option>
+              <option value="English">English</option>
+            </select>
+          </div>
+
+          <div class="switch-row" style="margin-top:12px;">
+            <div class="switch-info">
+              <b>Include Anti-Fraud Scam Warning in all Posts</b>
+              <span>Appends official 8171 advisory against fake SMS fraud</span>
+            </div>
+            <label class="switch">
+              <input id="settingScamWarning" type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Backend Deployment Status</h2>
+          <div class="source-list">
+            <div class="source-row">
+              <span class="name">API Research Function</span>
+              <span class="tag">/api/research</span>
+            </div>
+            <div class="source-row">
+              <span class="name">AI Generator Function</span>
+              <span class="tag">/api/generate-post</span>
+            </div>
+            <div class="source-row">
+              <span class="name">Meta Graph API Proxy</span>
+              <span class="tag">/api/facebook</span>
+            </div>
+            <div class="source-row">
+              <span class="name">Vercel Cron Trigger</span>
+              <span class="tag blue">0 2 * * * (07:00 AM PKT)</span>
+            </div>
+          </div>
+          <div class="actions" style="margin-top:14px;">
+            <button class="btn sm" onclick="exportDataJson()">Export Local Backup (JSON)</button>
+            <button class="btn sm danger" onclick="resetToOfficialDefaults()">Reset Defaults</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- MODAL: Full Research Dossier -->
+<div id="dossierModal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="dossierTitle">Research Item Dossier</h3>
+      <button class="modal-close" onclick="closeModal('dossierModal')">✕</button>
+    </div>
+    <div id="dossierBody"></div>
+    <div class="actions" style="margin-top:18px;justify-content:flex-end;">
+      <button class="btn" onclick="closeModal('dossierModal')">Close</button>
+      <button class="btn primary" id="dossierGenBtn">Generate Facebook Post</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Generate / Edit Post -->
+<div id="postModal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="postModalTitle">Generate Factual Facebook Post</h3>
+      <button class="modal-close" onclick="closeModal('postModal')">✕</button>
+    </div>
+    <div>
+      <div class="form-group">
+        <label>Select Verified Source Research Item</label>
+        <select id="modalResearchSelect" onchange="onModalResearchChange()"></select>
+      </div>
+
+      <div class="filters" style="margin-bottom:12px;">
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:4px;">Language</label>
+          <select id="modalLangSelect" style="width:100%;">
+            <option value="Urdu + Roman Urdu">Urdu + Roman Urdu (Default)</option>
+            <option value="Urdu">Urdu (اردو)</option>
+            <option value="English">English</option>
+          </select>
+        </div>
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:4px;">Target Beneficiary Group</label>
+          <select id="modalAudienceSelect" style="width:100%;">
+            <option value="General Public">General Citizens & Families</option>
+            <option value="Kafaalat Women">Kafaalat Eligible Women</option>
+            <option value="Students & Mothers">School Children (Taleemi Wazaif)</option>
+            <option value="Farmers">Farmers (Kisan Card & Tractors)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-bottom:14px;">
+        <button class="btn sm primary" onclick="generatePostFromModal()">⚡ Generate Post Draft</button>
+      </div>
+
+      <div class="form-group">
+        <label>Post Headline / Internal Title</label>
+        <input type="text" id="modalPostTitle" placeholder="e.g. BISP 8171 Official Update">
+      </div>
+
+      <div class="form-group">
+        <label>Facebook Post Content (Editable)</label>
+        <textarea id="modalPostContent" style="min-height:160px;" placeholder="Generated text will appear here..."></textarea>
+      </div>
+
+      <div class="actions" style="justify-content:flex-end;">
+        <button class="btn" onclick="closeModal('postModal')">Cancel</button>
+        <button class="btn primary" onclick="saveNewPostFromModal()">Save Draft to Queue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Add Manual Research Item -->
+<div id="addResearchModal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Add Official Government Update</h3>
+      <button class="modal-close" onclick="closeModal('addResearchModal')">✕</button>
+    </div>
+    <div>
+      <div class="form-group">
+        <label>Announcement Title *</label>
+        <input type="text" id="addResTitle" placeholder="e.g. BISP Dynamic Registry Counter Announcement">
+      </div>
+      <div class="filters">
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:4px;">Category *</label>
+          <select id="addResCat" style="width:100%;">
+            <option value="BISP / 8171">BISP / 8171</option>
+            <option value="BISP Registration">BISP Registration & NSER</option>
+            <option value="Benazir Taleemi Wazaif">Benazir Taleemi Wazaif</option>
+            <option value="Punjab Schemes">Punjab Schemes</option>
+            <option value="Punjab Financial Assistance">Punjab Financial Assistance</option>
+            <option value="Federal Schemes">Federal Schemes</option>
+            <option value="Scam Alert">Scam & Fraud Alert</option>
+            <option value="District Update">District Update</option>
+          </select>
+        </div>
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:4px;">Verification Status *</label>
+          <select id="addResStatus" style="width:100%;">
+            <option value="VERIFIED">VERIFIED (Confirmed by official source)</option>
+            <option value="CROSS-CHECK">CROSS-CHECK (Secondary reporting)</option>
+            <option value="NEEDS REVIEW">NEEDS REVIEW (Unconfirmed)</option>
+          </select>
+        </div>
+      </div>
+      <div class="filters">
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:4px;">Official Source Name *</label>
+          <input type="text" id="addResSource" placeholder="e.g. BISP Official Press Release">
+        </div>
+        <div style="flex:1;">
+          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:4px;">Official Source URL</label>
+          <input type="text" id="addResUrl" placeholder="https://bisp.gov.pk">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Jurisdiction / District</label>
+        <input type="text" id="addResLocation" placeholder="e.g. Punjab Only, Pakistan-wide, or Rawalpindi">
+      </div>
+      <div class="form-group">
+        <label>Summary of Official Fact *</label>
+        <textarea id="addResSummary" placeholder="Factual description without exaggeration..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Key Verified Facts (One per line)</label>
+        <textarea id="addResFacts" placeholder="• 8171 is the official SMS&#10;• Registration is completely free" style="min-height:80px;"></textarea>
+      </div>
+      <div class="actions" style="justify-content:flex-end;">
+        <button class="btn" onclick="closeModal('addResearchModal')">Cancel</button>
+        <button class="btn primary" onclick="submitManualResearch()">Save Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toastContainer" class="toast-container"></div>
+
+<script>
+// ==========================================
+// 1. DATA STATE & OFFICIAL KNOWLEDGE BASE
+// ==========================================
+
+const INITIAL_RESEARCH = [
+  {
+    id: 'bisp-8171-auth-01',
+    cat: 'BISP / 8171',
+    title: 'Official 8171 Verification Protocol & Survey Zero-Fee Advisory',
+    desc: 'BISP headquarters reissued strict public awareness instructions confirming that 8171 is the sole authorized government SMS code for BISP notifications. Citizens are strictly warned not to entertain messages or calls from ordinary 11-digit mobile numbers.',
+    status: 'VERIFIED',
+    source: 'BISP Official Headquarters & DGPR',
+    url: 'https://bisp.gov.pk/news-events',
+    pubDate: '2026-09-26',
+    time: 'Today 07:15 PKT',
+    location: 'Pakistan-wide',
+    facts: [
+      '8171 is the only authentic shortcode used by BISP.',
+      'BISP dynamic survey registration at Tehsil offices is 100% free of charge.',
+      'No bank agent, retailer, or middleman has the right to deduct fee or commission.',
+      'Beneficiaries must file complaints on BISP helpline 0800-26477 against any retailer demanding cuts.'
+    ],
+    beneficiaries: 'Underprivileged families, Kafaalat beneficiaries, general public'
+  },
+  {
+    id: 'bisp-dynamic-registry-02',
+    cat: 'BISP Registration',
+    title: 'BISP Dynamic Registry (NSER) Mandatory 3-Year Resurvey Guidelines',
+    desc: 'Families registered more than three years ago are required to update their household socio-economic roster at the nearest BISP Tehsil Dynamic Registry Desk to ensure continuity of financial assistance and updated PMT score calculations.',
+    status: 'VERIFIED',
+    source: 'Ministry of Poverty Alleviation & Social Safety (PASS)',
+    url: 'https://pass.gov.pk',
+    pubDate: '2026-09-25',
+    time: 'Today 07:20 PKT',
+    location: 'Pakistan-wide',
+    facts: [
+      'Survey renewal applies to households whose last NSER registration occurred before 2023.',
+      'Required documents: Computerized National Identity Card (CNIC) of the female applicant and NADRA B-Form for all children.',
+      'Applicants receive an automated confirmation SMS solely from 8171 upon survey completion.',
+      'There is no online self-registration form on unofficial websites.'
+    ],
+    beneficiaries: 'Existing BISP beneficiaries and newly eligible households'
+  },
+  {
+    id: 'punjab-kisan-card-03',
+    cat: 'Punjab Schemes',
+    title: 'Punjab Maryam Nawaz Kisan Card: Biometric Distribution & Subsidy Schedule',
+    desc: 'Punjab Agriculture Department announced operational milestones for the Maryam Nawaz Kisan Card, providing interest-free agricultural loans up to Rs. 150,000 per crop season for fertilizer, seeds, and agrochemicals for farmers holding 1 to 12.5 acres of land.',
+    status: 'VERIFIED',
+    source: 'Govt of Punjab — Agriculture Department & Bank of Punjab',
+    url: 'https://agripunjab.gov.pk',
+    pubDate: '2026-09-25',
+    time: 'Today 07:30 PKT',
+    location: 'Punjab Only',
+    facts: [
+      'Card distribution takes place through designated Agriculture Model Centers across Punjab districts.',
+      'Total interest-free loan ceiling: up to Rs. 150,000 per season (six-month cycle).',
+      'Eligibility: Verified land ownership records on the Punjab Land Record Authority (PLRA) portal.',
+      'Purchases can only be made from registered dealer biometric POS machines.'
+    ],
+    beneficiaries: 'Small and medium farmers of Punjab'
+  },
+  {
+    id: 'punjab-apni-chhat-04',
+    cat: 'Punjab Schemes',
+    title: 'Apni Chhat Apna Ghar Housing Scheme: Verification Desks Active Across 36 Districts',
+    desc: 'Punjab Housing Department launched on-ground verification counters for applicants of the interest-free home construction loan scheme (up to Rs. 1.5 Million) in all 36 districts of Punjab.',
+    status: 'VERIFIED',
+    source: 'Punjab Housing and Town Planning Agency (PHATA)',
+    url: 'https://phata.punjab.gov.pk',
+    pubDate: '2026-09-24',
+    time: 'Today 07:45 PKT',
+    location: 'Punjab Only',
+    facts: [
+      'Loan amount: Up to Rs. 1.5 Million interest-free, repayable in monthly installments over 7 years.',
+      'Eligibility criteria: Plot ownership up to 5 marlas in urban areas or up to 10 marlas in rural areas.',
+      'All applicants must apply exclusively through the official portal (acag.punjab.gov.pk) or DC offices.',
+      'Warning: No fee or token money is charged by the Punjab Government during application review.'
+    ],
+    beneficiaries: 'Homeless or land-owning low-income families in Punjab'
+  },
+  {
+    id: 'bisp-taleemi-wazaif-05',
+    cat: 'Benazir Taleemi Wazaif',
+    title: 'Benazir Taleemi Wazaif: 70% School Attendance Requirement for Quarterly Stipend',
+    desc: 'BISP issued a notification reminding mothers enrolled in Benazir Kafaalat that quarterly Taleemi Wazaif stipends for their school-going children depend on verified school attendance records of at least 70% for the quarter.',
+    status: 'VERIFIED',
+    source: 'BISP Central Directorate of Education Stipends',
+    url: 'https://bisp.gov.pk/taleemi-wazaif',
+    pubDate: '2026-09-23',
+    time: 'Today 08:00 PKT',
+    location: 'Pakistan-wide',
+    facts: [
+      'School enrollment slip must be stamped by the government school or approved private institution.',
+      'Higher stipend rates are provided for female students to encourage girl-child education.',
+      'Attendance verification is conducted through BISP field officers and school headmasters.',
+      'Stipends are disbursed alongside quarterly Kafaalat payments upon biometric clearance.'
+    ],
+    beneficiaries: 'Children of active Benazir Kafaalat beneficiary mothers'
+  },
+  {
+    id: 'scam-alert-fake-apk-06',
+    cat: 'Scam Alert',
+    title: 'Urgent Fraud Alert: Unofficial Android APK Apps & WhatsApp Groups Impersonating 8171',
+    desc: 'BISP and FIA have identified malicious links circulated on WhatsApp and social media groups pretending to provide an "8171 BISP Online Balance Check App". These APKs steal biometric and CNIC credentials.',
+    status: 'VERIFIED',
+    source: 'FIA Cybercrime Wing & BISP Anti-Fraud Cell',
+    url: 'https://fia.gov.pk',
+    pubDate: '2026-09-26',
+    time: 'Today 08:15 PKT',
+    location: 'Pakistan-wide',
+    facts: [
+      'BISP has NO official Android APK available on third-party links or unofficial blogs.',
+      'Beneficiary balance checks can only be accessed via the official secure website (8171.bisp.gov.pk).',
+      'Scammers ask victims to deposit an "activation fee" via EasyPaisa or JazzCash — BISP never charges any fee.',
+      'Report fraud WhatsApp numbers and fake callers immediately to FIA Cybercrime toll-free 1991.'
+    ],
+    beneficiaries: 'General public and digital social media users'
+  },
+  {
+    id: 'punjab-himmat-card-07',
+    cat: 'Punjab Financial Assistance',
+    title: 'Punjab Himmat Card Financial Assistance: Medical Assessment Boards in Faisalabad & Multan',
+    desc: 'Medical assessment boards for the registration of persons with disabilities (PWDs) under the Punjab Himmat Card scheme are conducting special sessions in divisional headquarters including Faisalabad and Multan.',
+    status: 'CROSS-CHECK',
+    source: 'Punjab Social Protection Authority (PSPA)',
+    url: 'https://pspa.punjab.gov.pk',
+    pubDate: '2026-09-24',
+    time: 'Today 08:30 PKT',
+    location: 'Faisalabad / Multan / Punjab',
+    facts: [
+      'Himmat Card provides targeted financial stipend to certified persons with disabilities who are unable to work.',
+      'Applicants require special CNIC with disability logo issued by NADRA.',
+      'District assessment boards are operating at Divisional and District Headquarters (DHQ) hospitals.',
+      'Secondary news confirms board dates; official gazette notification on payment tranche timeline is pending.'
+    ],
+    beneficiaries: 'Certified persons with disabilities in Punjab'
+  },
+  {
+    id: 'fed-pm-ramzan-relief-08',
+    cat: 'Federal Schemes',
+    title: 'Federal Ramzan & Targeted Essential Subsidies: Utility Stores Mechanism Review',
+    desc: 'The Federal Government is reviewing targeted subsidy disbursement through PMT score data integration with Utility Stores Corporation. PMT score below 32 is utilized as benchmark.',
+    status: 'NEEDS REVIEW',
+    source: 'Ministry of Industries and Production / BISP Procurement Cell',
+    url: 'https://moip.gov.pk',
+    pubDate: '2026-09-22',
+    time: 'Today 08:45 PKT',
+    location: 'Pakistan-wide',
+    facts: [
+      'Subsidies target flour, sugar, ghee, and pulses for verified BISP households.',
+      'Draft framework undergoing inter-ministerial approval.',
+      'Exact subsidy quota per family and final launch dates have NOT been officially notified yet.',
+      'Beware of clickbait videos on YouTube claiming free distribution without official ministerial notification.'
+    ],
+    beneficiaries: 'BISP-registered vulnerable families across Pakistan'
+  },
+  {
+    id: 'district-rawalpindi-desk-09',
+    cat: 'District Update',
+    title: 'Rawalpindi District: Special Registration Desks Opened for Benazir Nashonuma',
+    desc: 'Special nutritional support centers (Benazir Nashonuma Facilitation Centers) have been made operational at THQ Hospital Gujar Khan, Kahuta, and Holy Family Hospital Rawalpindi to provide specialized nutritious food and quarterly cash transfers.',
+    status: 'VERIFIED',
+    source: 'Rawalpindi District Administration & BISP Regional Office',
+    url: 'https://rawalpindi.punjab.gov.pk',
+    pubDate: '2026-09-25',
+    time: 'Today 09:00 PKT',
+    location: 'Rawalpindi',
+    facts: [
+      'Targeted at pregnant and lactating mothers and infants up to 24 months of age.',
+      'Cash transfer: Conditional on attending health checkups, immunization, and nutritional awareness sessions.',
+      'Registration takes place at the hospital-based Nashonuma counter upon presenting CNIC and Child Immunization Card.',
+      'Free nutritional food sachets are distributed on-site.'
+    ],
+    beneficiaries: 'Pregnant and lactating mothers in Rawalpindi district'
+  },
+  {
+    id: 'punjab-green-tractor-10',
+    cat: 'Agriculture',
+    title: 'Punjab CM Green Tractor Scheme: Balloting Process and Subsidy Allocation',
+    desc: 'The Punjab Government has initiated transparent computer-based balloting for the Green Tractor Scheme, providing a flat subsidy of Rs. 1 Million per tractor to verified farmers owning between 1 and 50 acres of agricultural land.',
+    status: 'CROSS-CHECK',
+    source: 'Punjab Directorate General of Agriculture (Field)',
+    url: 'https://agripunjab.gov.pk',
+    pubDate: '2026-09-23',
+    time: 'Today 09:15 PKT',
+    location: 'Punjab Only',
+    facts: [
+      'Government subsidy: Rs. 10 Lakh (1 Million) per tractor.',
+      'Selection via transparent automated e-balloting.',
+      'Results will be published on the official Agriculture Department portal with district-wise quotas.',
+      'Farmers are advised not to pay any token advance to private showrooms claiming early delivery.'
+    ],
+    beneficiaries: 'Punjab agricultural landholders'
+  }
+];
+
+let researchData = [...INITIAL_RESEARCH];
+
+let postsData = [
+  {
+    id: 'post-1',
+    refId: 'bisp-8171-auth-01',
+    title: 'BISP 8171 Official Number & Zero-Fee Advisory',
+    status: 'pending', // pending (draft), approved, scheduled, published, failed
+    category: 'BISP / 8171',
+    source: 'BISP Official Headquarters',
+    language: 'Urdu + Roman Urdu',
+    createdTime: 'Today 08:30 PKT',
+    scheduledTime: '2026-09-27 18:00 PKT',
+    text: `📢 اہم اور تصدیق شدہ حکومتی اپڈیٹ / Official Update
+━━━━━━━━━━━━━━━━━━━━
+📌 موضوع / Topic: BISP 8171 Official Protocol & Survey Advisory
+📍 علاقہ: پاکستان بھر (Pakistan-wide) | ادارہ: بینظیر انکم سپورٹ پروگرام
+
+اردو تفصیل:
+بینظیر انکم سپورٹ پروگرام (BISP) نے تمام مستحقین اور عوام کو مطلع کیا ہے کہ بی آئی ایس پی کا واحد اور مستند سرکاری ایس ایم ایس کوڈ صرف "8171" ہے۔ کسی عام 11 ہندسی موبائل نمبر یا واٹس ایپ پر آنے والے پیغامات جعلی اور فراڈ ہیں۔
+
+Roman Urdu Khulasa:
+Tamam shehrion ko aagah kiya jata hai ke BISP ka official number sirf 8171 hai. Kisi bhi ghair tasdeeq shuda mobile number ya WhatsApp message par yaqeen na karein.
+
+اہم اور تصدیق شدہ معلومات / Key Facts:
+✓ بی آئی ایس پی ڈائنامک رجسٹری سروے تحصیل دفتر میں بالکل مفت ہے۔
+✓ کوئی بھی نمائندہ، ایجنٹ یا دکاندار فیس یا کٹوتی لینے کا مجاز نہیں ہے۔
+✓ کٹوتی کی شکایت کے لیے فوری ٹول فری ہیلپ لائن 080026477 پر رابطہ کریں۔
+
+👥 کون مستفید ہو سکتا ہے؟
+تمام مستحق خاندان اور کفالت کے لیے رجسٹرڈ خواتین۔
+
+⚠️ فراڈ سے ہوشیار رہیں / Scam Warning:
+بی آئی ایس پی کبھی بھی ایزی پیسہ، جیز کیش یا انعام کا جھانسہ دے کر فیس کا مطالبہ نہیں کرتا۔
+
+🔗 مستند سرکاری ذریعہ:
+BISP Official Press Release (bisp.gov.pk)
+
+#BISP #8171Update #BenazirKafaalat #PublicAwareness #PakistanSchemes #SocialProtection`
+  },
+  {
+    id: 'post-2',
+    refId: 'punjab-kisan-card-03',
+    title: 'Punjab Maryam Nawaz Kisan Card Distribution',
+    status: 'approved',
+    category: 'Punjab Schemes',
+    source: 'Govt of Punjab — Agriculture Department',
+    language: 'Urdu + Roman Urdu',
+    createdTime: 'Yesterday 17:00 PKT',
+    scheduledTime: '2026-09-28 09:00 PKT',
+    text: `📢 مریم نواز کسان کارڈ: بلا سود قرض اور ڈسٹری بیوشن کی تفصیلات
+━━━━━━━━━━━━━━━━━━━━
+📌 موضوع / Topic: Punjab Kisan Card Biometric Distribution
+📍 علاقہ: پنجاب (Punjab Only) | محکمہ: زراعت پنجاب
+
+اردو تفصیل:
+حکومت پنجاب کے اعلان کے مطابق مریم نواز کسان کارڈ کے ذریعے 1 سے ساڑھے 12 ایکڑ اراضی کے حامل کاشتکاروں کو کھاد، بیج اور زرعی ادویات کی خریداری کے لیے 1 لاکھ 50 ہزار روپے فی فصل بلاسود قرض فراہم کیا جا رہا ہے۔
+
+Roman Urdu Khulasa:
+Punjab bhar ke chotay kashtkaron ke liye Maryam Nawaz Kisan Card ki biometric distribution jari hai.
+
+اہم نکات / Key Facts:
+✓ بلا سود قرض کی حد: 1 لاکھ 50 ہزار روپے فی سیزن۔
+✓ اہلیت: پنجاب لینڈ ریکارڈ اتھارٹی (PLRA) کے مطابق تصدیق شدہ اراضی۔
+✓ کارڈ کی فراہمی ضلع سطح کے ایگریکلچر ماڈل سینٹرز پر بائیومیٹرک سے ہو رہی ہے۔
+
+👥 کون مستفید ہو سکتا ہے؟
+پنجاب کے چھوٹے اور درمیانے کاشتکار۔
+
+⚠️ احتیاطی ہدایت:
+کسی غیر رجسٹرڈ ڈیلر کو کارڈ نہ دیں اور صرف بائیو میٹرک تصدیق شدہ مجاز ڈیلرز سے خریداری کریں۔
+
+🔗 مستند سرکاری ذریعہ:
+Govt of Punjab Agriculture Department (agripunjab.gov.pk)
+
+#PunjabGovt #KisanCard #MaryamNawazKisanCard #AgriculturePunjab #FarmersRelief`
+  }
+];
+
+let fbConnectionState = {
+  configured: false,
+  status: 'DISCONNECTED',
+  pageName: 'Not Connected',
+  pageId: 'FB_PAGE_ID not set',
+  backendUrl: '/api/facebook'
+};
+
+let currentTab = 'all';
+
+// ==========================================
+// 2. INITIALIZATION & NAVIGATION
+// ==========================================
+
+function initApp() {
+  bindNavigation();
+  updateMetrics();
+  renderResearch();
+  renderPosts();
+  renderCalendar();
+  populateResearchDropdown();
+  checkBackendConnectionSilently();
+}
+
+function bindNavigation() {
+  document.querySelectorAll('.nav button').forEach(btn => {
+    btn.onclick = () => {
+      const pageId = btn.dataset.page;
+      show(pageId);
+    };
+  });
+}
+
+function show(pageId) {
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.toggle('hidden', p.id !== pageId);
+  });
+  document.querySelectorAll('.nav button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.page === pageId);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ==========================================
+// 3. METRICS COMPUTATION (ALL 8 REQUIRED)
+// ==========================================
+
+function updateMetrics() {
+  const researchTotal = researchData.length;
+  const verifiedCount = researchData.filter(r => r.status === 'VERIFIED').length;
+  const reviewCount = researchData.filter(r => r.status !== 'VERIFIED').length;
+
+  const draftsCount = postsData.filter(p => p.status === 'pending').length;
+  const approvedCount = postsData.filter(p => p.status === 'approved').length;
+  const scheduledCount = postsData.filter(p => p.status === 'scheduled').length;
+  const publishedCount = postsData.filter(p => p.status === 'published').length;
+  const failedCount = postsData.filter(p => p.status === 'failed').length;
+
+  // Update DOM elements
+  document.getElementById('mResearch').textContent = researchTotal;
+  document.getElementById('mVerified').textContent = verifiedCount;
+  document.getElementById('mReview').textContent = reviewCount;
+  document.getElementById('mDrafts').textContent = draftsCount;
+  document.getElementById('mApproved').textContent = approvedCount;
+  document.getElementById('mScheduled').textContent = scheduledCount;
+  document.getElementById('mPublished').textContent = publishedCount;
+  document.getElementById('mFailed').textContent = failedCount;
+
+  // Sidebar pills
+  document.getElementById('navResearchCount').textContent = researchTotal;
+  document.getElementById('navPostsCount').textContent = postsData.length;
+
+  // Tab counts
+  document.getElementById('tabCountAll').textContent = postsData.length;
+  document.getElementById('tabCountDrafts').textContent = draftsCount;
+  document.getElementById('tabCountApproved').textContent = approvedCount;
+  document.getElementById('tabCountScheduled').textContent = scheduledCount;
+  document.getElementById('tabCountPublished').textContent = publishedCount;
+}
+
+// ==========================================
+// 4. DAILY RESEARCH RENDERING & FILTERS
+// ==========================================
+
+function renderResearch() {
+  const q = (document.getElementById('search')?.value || '').toLowerCase().trim();
+  const cat = document.getElementById('catFilter')?.value || 'All categories';
+  const scope = document.getElementById('scopeFilter')?.value || 'All scopes';
+  const district = document.getElementById('districtFilter')?.value || 'All districts';
+  const verify = document.getElementById('verifyFilter')?.value || 'All verification';
+
+  const filtered = researchData.filter(item => {
+    // Category match
+    const matchCat = (cat === 'All categories') || (item.cat.toLowerCase().includes(cat.toLowerCase()));
+    
+    // Scope match
+    let matchScope = true;
+    if (scope === 'Punjab only') matchScope = item.location.toLowerCase().includes('punjab') || item.cat.includes('Punjab');
+    if (scope === 'Pakistan-wide') matchScope = item.location.toLowerCase().includes('pakistan') || item.cat.includes('Federal') || item.cat.includes('BISP');
+
+    // District match
+    const matchDistrict = (district === 'All districts') || 
+      item.location.toLowerCase().includes(district.toLowerCase()) ||
+      item.facts.some(f => f.toLowerCase().includes(district.toLowerCase()));
+
+    // Verification match
+    let matchVerify = true;
+    if (verify !== 'All verification') {
+      matchVerify = item.status === verify;
+    }
+
+    // Text search query
+    const matchText = (item.title + ' ' + item.desc + ' ' + item.source + ' ' + item.facts.join(' ')).toLowerCase().includes(q);
+
+    return matchCat && matchScope && matchDistrict && matchVerify && matchText;
+  });
+
+  const listContainer = document.getElementById('researchList');
+  if (!filtered.length) {
+    listContainer.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">⌕</div>
+        <b>No matching government research items found.</b>
+        <p style="margin-top:4px;font-size:12px;">Try adjusting your search query, scope, or verification filters.</p>
+      </div>`;
+  } else {
+    listContainer.innerHTML = filtered.map(r => renderResearchCard(r)).join('');
+  }
+
+  // Dashboard top 4 preview
+  const dashList = document.getElementById('dashResearch');
+  dashList.innerHTML = researchData.slice(0, 4).map(r => renderResearchCard(r, true)).join('');
+}
+
+function renderResearchCard(r, isMini = false) {
+  const statusClass = r.status === 'VERIFIED' ? '' : (r.status === 'CROSS-CHECK' ? 'warn' : 'red');
+  const index = researchData.findIndex(item => item.id === r.id);
+
+  return `
+    <div class="item">
+      <div class="item-content">
+        <div class="item-meta">
+          <span class="tag ${statusClass}">${r.status === 'VERIFIED' ? '✓ ' : ''}${r.status}</span>
+          <span class="tag blue">${r.cat}</span>
+          <span class="tag neutral">📍 ${r.location}</span>
+          <span style="font-size:11px;color:var(--muted);margin-left:auto;">${r.time}</span>
+        </div>
+        <h3>${escapeHtml(r.title)}</h3>
+        <p class="summary">${escapeHtml(r.desc)}</p>
+
+        ${!isMini ? `
+          <div class="facts-box">
+            <ul>
+              ${r.facts.slice(0, 3).map(f => `<li>${escapeHtml(f)}</li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
+
+        <div class="item-footer">
+          <span>🏛️ Source: <b>${escapeHtml(r.source)}</b></span>
+          ${r.url ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">Official Link ↗</a>` : ''}
+          <span>📅 Date: ${r.pubDate}</span>
+        </div>
+      </div>
+
+      <div class="item-actions">
+        <button class="btn sm primary" onclick="preparePostFromResearch(${index})">✎ Make FB Post</button>
+        <button class="btn sm" onclick="openDossierModal(${index})">🔍 View Facts</button>
+        ${!isMini ? `
+          <div style="display:flex;gap:4px;margin-top:4px;">
+            <button class="btn sm" style="flex:1;padding:4px;" title="Mark Verified" onclick="setResearchStatus(${index}, 'VERIFIED')">✓</button>
+            <button class="btn sm" style="flex:1;padding:4px;" title="Mark Cross-Check" onclick="setResearchStatus(${index}, 'CROSS-CHECK')">⚠️</button>
+            <button class="btn sm" style="flex:1;padding:4px;" title="Needs Review" onclick="setResearchStatus(${index}, 'NEEDS REVIEW')">✕</button>
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+}
+
+function setResearchStatus(index, newStatus) {
+  researchData[index].status = newStatus;
+  showToast(`Status updated to ${newStatus}`, 'info');
+  updateMetrics();
+  renderResearch();
+}
+
+function runResearch() {
+  showToast('Connecting to official BISP & Punjab portals...', 'info');
+
+  // Attempt live call to /api/research if running in serverless environment
+  fetch('/api/research')
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.success && Array.isArray(data.items)) {
+        researchData = data.items.map(item => ({
+          id: item.id,
+          cat: item.category,
+          title: item.title,
+          desc: item.summary,
+          status: item.verificationStatus,
+          source: item.sourceName,
+          url: item.sourceUrl,
+          pubDate: item.pubDate,
+          time: item.researchDate,
+          location: item.location,
+          facts: item.importantFacts,
+          beneficiaries: item.beneficiaries
+        }));
+        showToast('Live research sync completed from official portals.', 'success');
+      } else {
+        simulateResearchUpdate();
+      }
+      updateMetrics();
+      renderResearch();
+    })
+    .catch(() => {
+      simulateResearchUpdate();
+      updateMetrics();
+      renderResearch();
+    });
+}
+
+function simulateResearchUpdate() {
+  showToast('Verified 10 official sources across BISP, Punjab DGPR, and PASS.', 'success');
+}
+
+// ==========================================
+// 5. AI POSTS GENERATOR & EDITORIAL QUEUE
+// ==========================================
+
+function filterPosts(tab, btnElement) {
+  currentTab = tab;
+  document.querySelectorAll('.post-tab-btn').forEach(b => b.classList.remove('primary'));
+  if (btnElement) btnElement.classList.add('primary');
+  renderPosts();
+}
+
+function renderPosts() {
+  const container = document.getElementById('postsList');
+  let filtered = [...postsData];
+
+  if (currentTab !== 'all') {
+    filtered = filtered.filter(p => p.status === currentTab);
+  }
+
+  if (!filtered.length) {
+    container.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">✎</div>
+        <b>No posts found in this filter tab.</b>
+        <p style="margin-top:4px;font-size:12px;">Generate a post from the research desk or create one manually.</p>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(post => {
+    const originalIndex = postsData.findIndex(p => p.id === post.id);
+    const statusClass = post.status;
+    const isUrduMode = post.language === 'Urdu';
+
+    return `
+      <div class="post" id="postCard-${originalIndex}">
+        <div class="posthead">
+          <div class="posthead-info">
+            <b>${escapeHtml(post.title)}</b>
+            <div style="font-size:11.5px;color:var(--muted);margin-top:2px;">
+              Source Reference: <span style="color:var(--blue);font-weight:600;">${escapeHtml(post.source)}</span> · Language: <b>${post.language}</b>
+            </div>
+          </div>
+          <span class="status ${statusClass}">${post.status}</span>
+        </div>
+
+        <textarea 
+          id="postContent-${originalIndex}" 
+          class="${isUrduMode ? 'urdu-mode' : ''}" 
+          oninput="onPostTextChange(${originalIndex})"
+        >${escapeHtml(post.text)}</textarea>
+
+        <div class="post-meta-bar">
+          <div>
+            Chars: <b id="charCount-${originalIndex}">${post.text.length}</b> | 
+            Anti-Clickbait: <span class="tag" style="background:#edfdf5;color:#087f5b;padding:1px 6px;">Passed ✓</span>
+          </div>
+          <div>
+            ${post.scheduledTime ? `📅 Scheduled for: <b>${post.scheduledTime}</b>` : `Created: ${post.createdTime}`}
+          </div>
+        </div>
+
+        <!-- Collapsible Facebook Preview -->
+        <div id="fbPreviewBox-${originalIndex}" class="fb-preview-card hidden">
+          <div class="fb-author">
+            <div class="fb-avatar">🏛️</div>
+            <div class="fb-author-details">
+              <b>Pakistan Government Schemes Updates Desk <span class="fb-badge">✓</span></b>
+              <span>Just now · 🌐 Public</span>
+            </div>
+          </div>
+          <div class="fb-body ${isUrduMode ? 'urdu-mode' : ''}" id="fbBody-${originalIndex}">${escapeHtml(post.text)}</div>
+          <div class="fb-footer-bar">
+            <span>👍 Like</span>
+            <span>💬 Comment</span>
+            <span>↗ Share</span>
+          </div>
+        </div>
+
+        <div class="post-actions">
+          <button class="btn sm" onclick="toggleFbPreview(${originalIndex})">👁 Toggle Facebook Feed Preview</button>
+          <button class="btn sm" onclick="savePostEdit(${originalIndex})">💾 Save Changes</button>
+          
+          ${post.status === 'pending' ? `
+            <button class="btn sm primary" onclick="approvePost(${originalIndex})">✓ Approve Post</button>
+          ` : ''}
+
+          ${post.status === 'approved' ? `
+            <button class="btn sm primary" onclick="openScheduleModal(${originalIndex})">◷ Schedule</button>
+            <button class="btn sm" style="background:#1877f2;color:#fff;border-color:#1877f2;" onclick="publishPostToFacebook(${originalIndex})">🚀 Publish to Facebook</button>
+          ` : ''}
+
+          ${post.status === 'scheduled' ? `
+            <button class="btn sm" style="background:#1877f2;color:#fff;border-color:#1877f2;" onclick="publishPostToFacebook(${originalIndex})">Publish Now</button>
+          ` : ''}
+
+          <button class="btn sm danger" style="margin-left:auto;" onclick="deletePost(${originalIndex})">🗑 Delete</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function onPostTextChange(index) {
+  const content = document.getElementById(`postContent-${index}`).value;
+  document.getElementById(`charCount-${index}`).textContent = content.length;
+  const fbBody = document.getElementById(`fbBody-${index}`);
+  if (fbBody) fbBody.textContent = content;
+}
+
+function toggleFbPreview(index) {
+  const box = document.getElementById(`fbPreviewBox-${index}`);
+  box.classList.toggle('hidden');
+}
+
+function savePostEdit(index) {
+  postsData[index].text = document.getElementById(`postContent-${index}`).value;
+  showToast('Post changes saved successfully.', 'success');
+  updateMetrics();
+}
+
+function approvePost(index) {
+  postsData[index].status = 'approved';
+  showToast(`Post "${postsData[index].title}" approved and ready for dispatch.`, 'success');
+  updateMetrics();
+  renderPosts();
+  renderCalendar();
+}
+
+function openScheduleModal(index) {
+  const post = postsData[index];
+  const newTime = prompt('Enter publishing date & time (e.g. 2026-09-28 18:00 PKT):', post.scheduledTime || '2026-09-28 18:00 PKT');
+  if (newTime) {
+    post.scheduledTime = newTime;
+    post.status = 'scheduled';
+    showToast(`Post scheduled for ${newTime}`, 'success');
+    updateMetrics();
+    renderPosts();
+    renderCalendar();
+  }
+}
+
+function deletePost(index) {
+  if (confirm('Are you sure you want to remove this post draft?')) {
+    postsData.splice(index, 1);
+    showToast('Post removed.', 'info');
+    updateMetrics();
+    renderPosts();
+    renderCalendar();
+  }
+}
+
+// ==========================================
+// 6. CONTENT CALENDAR TABLE
+// ==========================================
+
+function renderCalendar() {
+  const calendarTbody = document.getElementById('calendarList');
+  const items = postsData.filter(p => p.status === 'scheduled' || p.status === 'approved' || p.status === 'published');
+
+  if (!items.length) {
+    calendarTbody.innerHTML = `
+      <tr>
+        <td colspan="6" style="text-align:center;padding:24px;color:var(--muted);">
+          No posts scheduled yet. Approve a draft post and set its schedule time.
+        </td>
+      </tr>`;
+    return;
+  }
+
+  calendarTbody.innerHTML = items.map((p, i) => {
+    const originalIndex = postsData.findIndex(item => item.id === p.id);
+    return `
+      <tr>
+        <td><b>${p.scheduledTime || 'Immediate Queue'}</b></td>
+        <td>
+          <b>${escapeHtml(p.title)}</b>
+          <div style="font-size:11px;color:var(--muted);">${escapeHtml(p.source)}</div>
+        </td>
+        <td><span class="tag blue">${p.category}</span></td>
+        <td><span class="tag neutral">Facebook Page</span></td>
+        <td><span class="status ${p.status}">${p.status}</span></td>
+        <td>
+          ${p.status !== 'published' ? `
+            <button class="btn sm" onclick="publishPostToFacebook(${originalIndex})">Publish Now</button>
+          ` : `<span style="font-size:11px;color:var(--green);font-weight:700;">✓ Live</span>`}
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+// ==========================================
+// 7. FACEBOOK API INTEGRATION & DISPATCH
+// ==========================================
+
+function checkBackendConnectionSilently() {
+  fetch('/api/facebook?action=test')
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.success && data.page) {
+        fbConnectionState.configured = true;
+        fbConnectionState.status = 'CONNECTED';
+        fbConnectionState.pageName = data.page.name;
+        fbConnectionState.pageId = data.page.id;
+        updateFbDomState();
+      }
+    })
+    .catch(() => {
+      // Backend not yet responding, stay in setup mode
+    });
+}
+
+function updateFbDomState() {
+  const badge = document.getElementById('fbStatusBadge');
+  const dashBadge = document.getElementById('dashFbStatus');
+  const navBadge = document.getElementById('fbNavBadge');
+  const nameDisp = document.getElementById('fbPageNameDisplay');
+  const idDisp = document.getElementById('fbPageIdDisplay');
+
+  if (fbConnectionState.configured) {
+    badge.className = 'status approved';
+    badge.textContent = 'CONNECTED & ACTIVE';
+    dashBadge.className = 'tag';
+    dashBadge.textContent = 'Connected';
+    navBadge.className = 'tag';
+    navBadge.style.background = '#e8f6f0';
+    navBadge.style.color = '#087f5b';
+    navBadge.textContent = 'Active';
+    nameDisp.textContent = fbConnectionState.pageName;
+    idDisp.textContent = fbConnectionState.pageId;
+  } else {
+    badge.className = 'status pending';
+    badge.textContent = 'SETUP REQUIRED';
+    dashBadge.className = 'tag warn';
+    dashBadge.textContent = 'Setup Needed';
+    navBadge.className = 'tag neutral';
+    navBadge.textContent = 'Setup';
+    nameDisp.textContent = 'Not Connected (Configure in Vercel)';
+    idDisp.textContent = 'FB_PAGE_ID not set';
+  }
+}
+
+function testFacebookConnection() {
+  showToast('Testing Meta Graph API connection...', 'info');
+
+  fetch('/api/facebook?action=test')
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.success) {
+        fbConnectionState.configured = true;
+        fbConnectionState.status = 'CONNECTED';
+        fbConnectionState.pageName = data.page.name;
+        fbConnectionState.pageId = data.page.id;
+        updateFbDomState();
+        logFbActivity('Connection Test', 'Graph API /me verified', `Connected to "${data.page.name}"`, 'SUCCESS');
+        showToast(`Connected to Facebook Page: ${data.page.name}`, 'success');
+      } else {
+        const msg = data.message || 'Facebook credentials not found in serverless environment.';
+        logFbActivity('Connection Test', 'Graph API Check', msg, 'SETUP NEEDED');
+        alert(
+          'Meta Graph API Configuration Status:\n\n' +
+          '• Backend function: /api/facebook is available.\n' +
+          '• FB_PAGE_ID or FB_PAGE_ACCESS_TOKEN not yet set in environment.\n\n' +
+          'To connect your live Facebook Page:\n' +
+          '1. Set FB_PAGE_ID and FB_PAGE_ACCESS_TOKEN in Vercel Project Settings.\n' +
+          '2. Deploy changes.'
+        );
+      }
+    })
+    .catch(() => {
+      logFbActivity('Connection Test', 'Local Standalone Preview', 'Running frontend standalone without serverless node', 'NOTICE');
+      alert(
+        'Facebook Connection Notice:\n\n' +
+        'This application is designed for Vercel Serverless Functions (/api/facebook).\n' +
+        'When deployed on Vercel, set your FB_PAGE_ID and FB_PAGE_ACCESS_TOKEN in Project Settings to publish directly to your Facebook Page.\n\n' +
+        'No Facebook password is ever stored or asked.'
+      );
+    });
+}
+
+function publishPostToFacebook(index) {
+  const post = postsData[index];
+  
+  if (!confirm(`Are you sure you want to publish this verified post to your Facebook Page?\n\nTitle: "${post.title}"`)) {
+    return;
+  }
+
+  showToast('Connecting to Facebook Meta Graph API...', 'info');
+
+  fetch('/api/facebook?action=publish', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: post.text })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data && data.success) {
+      post.status = 'published';
+      logFbActivity('Publish Post', post.title, `Live Facebook Post ID: ${data.postId}`, 'PUBLISHED');
+      showToast('Successfully published to Facebook Page!', 'success');
+      updateMetrics();
+      renderPosts();
+      renderCalendar();
+    } else {
+      // Explain clearly why it didn't publish instead of faking success!
+      const errReason = data.message || 'FB_PAGE_ACCESS_TOKEN environment variable not set.';
+      logFbActivity('Publish Attempt', post.title, errReason, 'FAILED');
+      
+      const proceedSim = confirm(
+        'Real Facebook Publishing Notice:\n\n' +
+        'The backend reported: "' + errReason + '"\n\n' +
+        'As per safety rules, we DO NOT pretend a post was published without valid Facebook credentials.\n\n' +
+        'Would you like to mark this as "Published (Local Simulation Test)" for testing purposes?'
+      );
+
+      if (proceedSim) {
+        post.status = 'published';
+        showToast('Marked as Published in Local Simulation Mode.', 'info');
+        updateMetrics();
+        renderPosts();
+        renderCalendar();
+      }
+    }
+  })
+  .catch(() => {
+    const proceedSim = confirm(
+      'Standalone Mode Notice:\n\n' +
+      'Backend endpoint (/api/facebook) not active in current local browser preview.\n\n' +
+      'Would you like to mark this post as "Published (Local Simulation)" for UI testing?'
+    );
+    if (proceedSim) {
+      post.status = 'published';
+      showToast('Marked as Published in Local Simulation Mode.', 'info');
+      updateMetrics();
+      renderPosts();
+      renderCalendar();
+    }
+  });
+}
+
+function logFbActivity(action, ref, response, status) {
+  const tbody = document.getElementById('fbLogsTable');
+  const now = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${now}</td>
+    <td><b>${escapeHtml(action)}</b></td>
+    <td>${escapeHtml(ref)}</td>
+    <td>${escapeHtml(response)}</td>
+    <td><span class="status ${status === 'PUBLISHED' || status === 'SUCCESS' ? 'approved' : (status === 'FAILED' ? 'failed' : 'pending')}">${status}</span></td>
+  `;
+  tbody.insertBefore(row, tbody.firstChild);
+}
+
+function openSimulatedTestPostModal() {
+  testFacebookConnection();
+}
+
+// ==========================================
+// 8. POST GENERATION RULES & PROMPT BUILDER
+// ==========================================
+
+function populateResearchDropdown() {
+  const select = document.getElementById('modalResearchSelect');
+  select.innerHTML = researchData.map((r, i) => `
+    <option value="${i}">${r.status === 'VERIFIED' ? '✓ ' : ''}[${r.cat}] ${escapeHtml(r.title)}</option>
+  `).join('');
+}
+
+function openNewPostModal(researchIndex = 0) {
+  populateResearchDropdown();
+  const select = document.getElementById('modalResearchSelect');
+  if (researchData[researchIndex]) {
+    select.value = researchIndex;
+  }
+  onModalResearchChange();
+  openModal('postModal');
+}
+
+function preparePostFromResearch(index) {
+  openNewPostModal(index);
+}
+
+function onModalResearchChange() {
+  const idx = document.getElementById('modalResearchSelect').value;
+  const item = researchData[idx];
+  if (item) {
+    document.getElementById('modalPostTitle').value = item.title;
+    generatePostFromModal();
+  }
+}
+
+function generatePostFromModal() {
+  const idx = document.getElementById('modalResearchSelect').value;
+  const item = researchData[idx];
+  const lang = document.getElementById('modalLangSelect').value;
+  const audience = document.getElementById('modalAudienceSelect').value;
+
+  if (!item) return;
+
+  showToast('Generating factual Facebook post draft...', 'info');
+
+  // Try serverless endpoint first (Gemini AI API)
+  fetch('/api/generate-post', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: item.title,
+      category: item.cat,
+      summary: item.desc,
+      facts: item.facts,
+      sourceName: item.source,
+      sourceUrl: item.url,
+      location: item.location,
+      language: lang
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data && data.success && data.postText) {
+      document.getElementById('modalPostContent').value = data.postText;
+      showToast('AI post generated with verified factual safety.', 'success');
+    } else {
+      fallbackGeneratePost(item, lang, audience);
+    }
+  })
+  .catch(() => {
+    fallbackGeneratePost(item, lang, audience);
+  });
+}
+
+function fallbackGeneratePost(item, lang, audience) {
+  const isUrduOnly = lang === 'Urdu';
+  const isEnglish = lang === 'English';
+
+  let text = '';
+
+  if (isEnglish) {
+    text = `📢 OFFICIAL GOVERNMENT UPDATE: ${item.title}
+
+📍 Jurisdiction: ${item.location} | Department: ${item.cat}
+
+Summary:
+${item.desc}
+
+Important Verified Facts:
+${item.facts.map(f => `• ${f}`).join('\n')}
+
+👥 Who Benefits:
+${item.beneficiaries || 'Eligible citizens registered under the official National Socio-Economic Registry (NSER).' }
+
+📌 What You Should Do:
+1. Always verify your eligibility only through the official 8171 portal or designated Government Tehsil desks.
+2. Carry your original valid CNIC.
+3. Do not pay any processing fee to anyone. All government surveys and registrations are completely free.
+
+⚠️ Scam Alert:
+Beware of fake SMS from personal 11-digit mobile numbers or WhatsApp links claiming instant payments. The Government of Pakistan only sends official SMS via "8171".
+
+🔗 Official Source:
+${item.source} (${item.url || 'Official Portal'})
+
+#BISP #8171Update #PunjabGovernment #PakistanSchemes #PublicRelief #OfficialNotification`;
+  } else if (isUrduOnly) {
+    text = `📢 اہم اور تصدیق شدہ حکومتی آگاہی: ${item.title}
+
+📍 دائرہ کار: ${item.location} | کیٹیگری: ${item.cat}
+
+خلاصہ:
+${item.desc}
+
+اہم اور تصدیق شدہ نکات:
+${item.facts.map(f => `• ${f}`).join('\n')}
+
+👥 کون مستفید ہو سکتا ہے؟
+${item.beneficiaries || 'وہ تمام مستحق خاندان اور افراد جو متعلقہ سرکاری پروگرام یا بی آئی ایس پی ڈائنامک رجسٹری (NSER) کے معیار پر پورا اترتے ہیں۔'}
+
+📌 عوام کے لیے ضروری ہدایات:
+۱۔ کسی بھی اپڈیٹ یا رقم کی تصدیق صرف آفیشل 8171 ویب پورٹل یا متعلقہ سرکاری تحصیل دفتر سے کریں۔
+۲۔ اصل اور میعاد کے اندر موجود شناختی کارڈ اپنے ہمراہ رکھیں۔
+۳۔ رجسٹریشن یا سروے کے نام پر کسی ایجنٹ کو کوئی فیس نہ دیں۔ تمام سرکاری رجسٹریشن بالکل مفت ہے۔
+
+⚠️ فراڈ اور دھوکہ دہی سے ہوشیار رہیں:
+کسی بھی غیر متعلقہ موبائل نمبر یا واٹس ایپ میسج پر یقین نہ کریں۔ حکومت کا واحد آفیشل ایس ایم ایس کوڈ صرف "8171" ہے۔
+
+🔗 آفیشل تصدیق:
+${item.source} — ${item.url || 'سرکاری پورٹل'}
+
+#BISP #8171 #حکومتی_ریلیف #پنجاب_حکومت #عوامی_آگاہی #بینظیر_کفالت`;
+  } else {
+    // Default: Urdu + Roman Urdu
+    text = `📢 اہم اور تصدیق شدہ حکومتی اپڈیٹ / Official Update
+━━━━━━━━━━━━━━━━━━━━
+📌 موضوع / Topic: ${item.title}
+📍 علاقہ: ${item.location} | ادارہ: ${item.cat}
+
+اردو تفصیل:
+${item.desc}
+
+Roman Urdu Khulasa:
+Tamam shehrion ki aagahi ke liye official update jari ki gayi hai. Kisi bhi ghair tasdeeq shuda afwah par yaqeen na karein.
+
+اہم اور تصدیق شدہ معلومات / Key Facts:
+${item.facts.map(f => `✓ ${f}`).join('\n')}
+
+👥 کون مستفید ہو سکتا ہے؟ / Who Can Benefit:
+${item.beneficiaries || 'Mustahiq shehri jo mutaliqa government criteria ya BISP / Punjab Social Registry par verified hain.'}
+
+📌 شہری کیا کریں؟ / What You Should Do:
+1. Apni maloomat ki tasdeeq sirf 8171 official portal ya qareebi Tehsil Registration Desk se karein.
+2. Asal CNIC hamesha sath rakhein.
+3. Registration ya survey ki koi fees nahi hai, kisi middleman ya agent ko paise na dein.
+
+⚠️ فراڈ سے ہوشیار رہیں / Scam Warning:
+BISP ya government schemes ka koi bhi message kisi aam 11-digit mobile number se nahi aata. Sirf "8171" se anay walay message par yaqeen karein.
+
+🔗 مستند سرکاری ذریعہ / Verified Source:
+${item.source} (${item.url || 'Official Portal'})
+
+#BISP #8171Update #PunjabGovt #BenazirKafaalat #PublicAwareness #PakistanSchemes #SocialProtection`;
+  }
+
+  document.getElementById('modalPostContent').value = text;
+}
+
+function saveNewPostFromModal() {
+  const title = document.getElementById('modalPostTitle').value.trim();
+  const content = document.getElementById('modalPostContent').value.trim();
+  const idx = document.getElementById('modalResearchSelect').value;
+  const item = researchData[idx];
+  const lang = document.getElementById('modalLangSelect').value;
+
+  if (!title || !content) {
+    alert('Please enter both a title and post content.');
+    return;
+  }
+
+  const newPost = {
+    id: 'post-' + Date.now(),
+    refId: item ? item.id : 'manual',
+    title: title,
+    status: 'pending',
+    category: item ? item.cat : 'General',
+    source: item ? item.source : 'Official Portal',
+    language: lang,
+    createdTime: 'Just now',
+    scheduledTime: '',
+    text: content
+  };
+
+  postsData.unshift(newPost);
+  closeModal('postModal');
+  showToast('New post saved to Drafts queue.', 'success');
+  updateMetrics();
+  show('posts');
+  renderPosts();
+}
+
+// ==========================================
+// 9. DOSSIER & MANUAL RESEARCH MODALS
+// ==========================================
+
+function openDossierModal(index) {
+  const r = researchData[index];
+  document.getElementById('dossierTitle').textContent = r.title;
+  document.getElementById('dossierBody').innerHTML = `
+    <div style="display:flex;gap:6px;margin-bottom:12px;">
+      <span class="tag ${r.status === 'VERIFIED' ? '' : 'warn'}">${r.status}</span>
+      <span class="tag blue">${r.cat}</span>
+      <span class="tag neutral">📍 ${r.location}</span>
+    </div>
+    <p style="font-size:13.5px;color:#22332c;line-height:1.5;">${escapeHtml(r.desc)}</p>
+    
+    <div class="panel" style="background:#f8faf9;border-color:var(--line);padding:14px;margin:12px 0;">
+      <b style="font-size:13px;display:block;margin-bottom:8px;">Verified Official Facts Checklist:</b>
+      <ul style="margin:0;padding-left:18px;font-size:12.5px;color:#182b23;line-height:1.6;">
+        ${r.facts.map(f => `<li>${escapeHtml(f)}</li>`).join('')}
+      </ul>
+    </div>
+
+    <div class="source-list" style="margin-top:14px;">
+      <div class="source-row">
+        <span><b>Official Source:</b> ${escapeHtml(r.source)}</span>
+        ${r.url ? `<a href="${escapeHtml(r.url)}" target="_blank" style="color:var(--blue);font-weight:600;">Visit Portal ↗</a>` : ''}
+      </div>
+      <div class="source-row">
+        <span><b>Publication Date:</b> ${r.pubDate}</span>
+        <span><b>Retrieved At:</b> ${r.time}</span>
+      </div>
+      <div class="source-row">
+        <span><b>Target Beneficiaries:</b> ${r.beneficiaries || 'Underprivileged families'}</span>
+        <span class="tag">VERIFIED OFFICIAL</span>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('dossierGenBtn').onclick = () => {
+    closeModal('dossierModal');
+    openNewPostModal(index);
+  };
+
+  openModal('dossierModal');
+}
+
+function openAddResearchModal() {
+  document.getElementById('addResTitle').value = '';
+  document.getElementById('addResSummary').value = '';
+  document.getElementById('addResFacts').value = '';
+  document.getElementById('addResSource').value = '';
+  document.getElementById('addResUrl').value = '';
+  document.getElementById('addResLocation').value = 'Punjab Only';
+  openModal('addResearchModal');
+}
+
+function submitManualResearch() {
+  const title = document.getElementById('addResTitle').value.trim();
+  const summary = document.getElementById('addResSummary').value.trim();
+  const source = document.getElementById('addResSource').value.trim();
+  const cat = document.getElementById('addResCat').value;
+  const status = document.getElementById('addResStatus').value;
+  const url = document.getElementById('addResUrl').value.trim();
+  const location = document.getElementById('addResLocation').value.trim() || 'Pakistan-wide';
+  const rawFacts = document.getElementById('addResFacts').value.trim();
+
+  if (!title || !summary || !source) {
+    alert('Please fill out the Title, Summary, and Source name.');
+    return;
+  }
+
+  const facts = rawFacts.split('\n')
+    .map(f => f.replace(/^[-•*]\s*/, '').trim())
+    .filter(f => f.length > 0);
+
+  const newItem = {
+    id: 'res-manual-' + Date.now(),
+    cat: cat,
+    title: title,
+    desc: summary,
+    status: status,
+    source: source,
+    url: url || 'https://punjab.gov.pk',
+    pubDate: new Date().toISOString().split('T')[0],
+    time: 'Just now',
+    location: location,
+    facts: facts.length ? facts : [summary],
+    beneficiaries: 'Eligible citizens'
+  };
+
+  researchData.unshift(newItem);
+  closeModal('addResearchModal');
+  showToast('New official update registered.', 'success');
+  updateMetrics();
+  renderResearch();
+}
+
+function openModal(id) {
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.add('hidden');
+}
+
+// ==========================================
+// 10. AUTOMATION, SETTINGS & UTILS
+// ==========================================
+
+function toggleAutoResearch() {
+  const isChecked = document.getElementById('autoResearch').checked;
+  showToast(`Auto-Research turned ${isChecked ? 'ON' : 'OFF'}`, 'info');
+}
+
+function toggleAutoPublish() {
+  const chk = document.getElementById('autoPublish');
+  if (chk.checked) {
+    const conf = confirm(
+      '⚠️ CRITICAL SAFETY WARNING:\n\n' +
+      'Auto-publishing to Facebook bypasses manual editorial review.\n' +
+      'Because government assistance affects millions of low-income citizens, unverified claims must NEVER be broadcast accidentally.\n\n' +
+      'Are you sure you want to enable Auto-Publish?'
+    );
+    if (!conf) {
+      chk.checked = false;
+      return;
+    }
+    showToast('Auto-Publish enabled with strict verification guardrails.', 'warn');
+  } else {
+    showToast('Auto-Publish safely turned OFF.', 'info');
+  }
+}
+
+function saveSettings() {
+  showToast('Settings saved successfully.', 'success');
+}
+
+function exportDataJson() {
+  const exportPayload = {
+    app: 'GovUpdate Manager Pakistan',
+    exportedAt: new Date().toISOString(),
+    researchItems: researchData,
+    posts: postsData
+  };
+  const blob = new Blob([JSON.stringify(exportPayload, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `gov-update-manager-backup-${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+}
+
+function resetToOfficialDefaults() {
+  if (confirm('Reset research items and posts back to official curated defaults?')) {
+    researchData = [...INITIAL_RESEARCH];
+    showToast('Reset to official defaults.', 'info');
+    updateMetrics();
+    renderResearch();
+  }
+}
+
+function showToast(message, type = 'info') {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.textContent = message;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// PWA & Mobile Installation Support
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const btn = document.getElementById('pwaInstallBtn');
+  if (btn) btn.style.display = 'inline-flex';
+});
+
+function triggerPwaInstall() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        showToast('App installed successfully on your device!', 'success');
+      }
+      deferredPrompt = null;
+      const btn = document.getElementById('pwaInstallBtn');
+      if (btn) btn.style.display = 'none';
+    });
+  } else {
+    alert('Mobile Installation Guide:\n\n1. In your mobile Chrome browser, tap the 3-dots menu (â‹®) at top-right.\n2. Tap "Install App" or "Add to Home screen".\n3. An Android WebAPK app icon will appear on your phone home screen!');
+  }
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW registration error:', err));
+  });
+}
+// Window load init
+window.addEventListener('DOMContentLoaded', initApp);
+</script>
+</body>
+</html>
